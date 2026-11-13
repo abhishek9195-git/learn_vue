@@ -11,9 +11,10 @@
       }
     },
     computed: {
-      customClass() {
+      getCustomStyleObj() {
         return {
-          active: this.isActive
+          active: this.isActive,
+          error: false
         }
       }
     }
@@ -22,7 +23,7 @@
 
 <template>
   <h1 v-bind:class="isActive ? 'active' : 'inactive'">{{ firstName + ' ' + lastName }}</h1>
-  <h1 v-bind:class="customClass">{{ firstName + ' ' + lastName}}</h1>
+  <h1 v-bind:class="getCustomStyleObj">{{ firstName + ' ' + lastName}}</h1>
 
   <button v-on:click="isActive = !isActive">{{ isActive ? 'logout' : 'login' }}</button>
 </template>
@@ -34,6 +35,10 @@
 }
 
 .inactive {
+  color: red;
+}
+
+.error {
   color: red;
 }
 </style>
