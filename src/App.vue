@@ -1,8 +1,15 @@
-<script setup lang="ts">
+<script lang="ts">
+  export default {
+    data() {
+      return {
+        field: '<h1>John Doe</h1>'
+      }
+    }
+  }
 </script>
 
 <template>
-  App works !!!
+  <div v-html="field"></div>
 </template>
 
 <style scoped>
