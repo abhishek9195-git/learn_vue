@@ -1,15 +1,32 @@
 <script lang="ts">
+import type { PropType } from 'vue';
 import type { IUser } from './UserList.vue';
 
 export default {
     name: 'UserCard',
     props: {
-        user: Object
+        user: {
+            type: Object as PropType<IUser>,
+            default: () => ({})
+        },
+        getUserName: {
+            type: Function,
+            default: null
+        }
+    },
+    methods: {
+        handleCardClick() {
+            if (this.getUserName) {
+                this.getUserName(this.user as IUser);
+            }
+        }
     }
 }
 </script>
 <template>
-    <div class="card">{{ (user as IUser)?.firstName }}</div>
+    <div class="card" v-on:click="handleCardClick">
+        {{ user?.firstName ?? '' }}
+    </div>
 </template>
 <style>
 div.card {

@@ -19,6 +19,11 @@ export default {
             type: Array<IUser>,
             default: () => []
         }
+    },
+    methods: {
+        parentFn(user: IUser) {
+            alert(user.firstName)
+        }
     }
 }
 </script>
@@ -26,7 +31,7 @@ export default {
     <div class="wrapper">
         <h1>List of users:</h1>
         <div class="card-group">
-            <UserCard v-for="user in users" :key="user.id" :user="user"/>
+            <UserCard v-for="user in users" :key="user.id" :user="user" :getUserName="parentFn"/>
         </div>
     </div>
 </template>
