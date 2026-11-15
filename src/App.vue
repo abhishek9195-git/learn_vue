@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import Header from './Header.vue';
+
 </script>
 
 <template>
-  App works !!!
+  <Header />
+  <router-view></router-view>
 </template>
 
 <style scoped>
