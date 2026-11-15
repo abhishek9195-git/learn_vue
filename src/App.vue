@@ -1,8 +1,17 @@
-<script setup lang="ts">
+<script lang="ts">
+import UserList from './UserList.vue';
+
+
+export default {
+  name: 'App',
+  components: {
+    UserList
+  }
+}
 </script>
 
 <template>
-  App works !!!
+  <UserList data="hello"/>
 </template>
 
 <style scoped>
